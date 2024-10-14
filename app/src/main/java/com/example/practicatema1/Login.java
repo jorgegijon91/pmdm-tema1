@@ -37,6 +37,8 @@ public class Login extends AppCompatActivity {
                 //Si el usuario y contraseña es admin
                 if(editTextNombre.getText().toString().equals("admin") && editTextPass.getText().toString().equals("admin")) {
                     Intent intent = new Intent(Login.this, LoginCorrecto.class);
+                    intent.putExtra("Nombre", editTextNombre.getText().toString());
+                    intent.putExtra("pass", editTextPass.getText().toString());
                     startActivity(intent);
                 }
                 else{

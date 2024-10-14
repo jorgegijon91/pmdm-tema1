@@ -29,11 +29,12 @@ public class LoginCorrecto extends AppCompatActivity {
 
         //Recuperar datos de la actividad Login
         Bundle bundle = getIntent().getExtras();
-        String editTextNombre = bundle.getString("nombre");
+        String editTextNombre = bundle.getString("Nombre");
+        String editTextPass = bundle.getString("pass");
         //Recuperar el texto de la vista
         TextView textoBienvenido = findViewById(R.id.textBienvenido);
         //Settear el texto
-        textoBienvenido.setText("Bienvenido: " + editTextNombre);
+        textoBienvenido.setText("Bienvenido: " + textoBienvenido);
 
         //Recuperar el imageButton
         ImageButton imageButton = findViewById(R.id.imageButton);
