@@ -27,38 +27,36 @@ public class LoginCorrecto extends AppCompatActivity {
             return insets;
         });
 
-        //Recuperar datos de la actividad Login
-        Bundle bundle = getIntent().getExtras();
-        String editTextNombre = bundle.getString("Nombre");
-        String editTextPass = bundle.getString("pass");
+        //Recuperar nombre de la actividad Login
+        String nombre = getIntent().getStringExtra("Nombre");
         //Recuperar el texto de la vista
         TextView textoBienvenido = findViewById(R.id.textBienvenido);
         //Settear el texto
-        textoBienvenido.setText("Bienvenido: " + textoBienvenido);
+        textoBienvenido.setText("Bienvenido: " + nombre);
 
         //Recuperar el imageButton
-        ImageButton imageButton = findViewById(R.id.imageButton);
+        ImageButton imageWeb = findViewById(R.id.imageButton);
 
 
-        imageButton.setOnClickListener(new View.OnClickListener() {
+        imageWeb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //Intent actionView y le pasamos la url
-                String url = "“https://www.tutorialspoint.com/android/android_intents_filters.htm";
-                Intent intentUrl = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                Intent intentUrl = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.tutorialspoint.com/android/android_intents_filters.htm"));
                 startActivity(intentUrl);
 
             }
         });
 
         //Recuperar el botón de alarma
-        Button buttonAlarma = findViewById(R.id.buttonAlarma);
+        Button alarma = findViewById(R.id.buttonAlarma);
 
-        buttonAlarma.setOnClickListener(new View.OnClickListener() {
+        alarma.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //Pasar a otra actividad
                 Intent intent3 = new Intent(LoginCorrecto.this, CrearAlarma.class);
+                startActivity(intent3);
             }
         });
     }

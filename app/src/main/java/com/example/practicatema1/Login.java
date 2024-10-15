@@ -8,6 +8,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -15,6 +17,24 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class Login extends AppCompatActivity {
 
+    private String nombreUsuario = "admin";  // Valor por defecto
+    private String contrasena = "admin";     // Valor por defecto
+
+    ActivityResultLauncher<Intent> credenciales = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            result -> {
+                if (result.getResultCode() == RESULT_OK && result.getData() != null) {
+                    Intent data = result.getData();
+
+                    // Obtener los nuevos valores del intent
+                    String nombre = data.getStringExtra("Nombre");
+                    String pass = data.getStringExtra("pass");
+                    //Atualizar credenciales
+                    nombre=nombreUsuario;
+                    pass=contrasena;
+
+                }
+            });
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,8 +54,12 @@ public class Login extends AppCompatActivity {
         btnIniciar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Si el usuario y contraseña es admin
-                if(editTextNombre.getText().toString().equals("admin") && editTextPass.getText().toString().equals("admin")) {
+                //Guardamos nombre y pass en un String
+                String nombreUsuaro= editTextNombre.getText().toString();
+                String passUsuario= editTextPass.getText().toString();
+
+                //Lanzar el intent si los datos de nombre y contraseña son correctos
+                if (nombreUsuaro.equals(nombreUsuario) && passUsuario.equals(contrasena))  {
                     Intent intent = new Intent(Login.this, LoginCorrecto.class);
                     intent.putExtra("Nombre", editTextNombre.getText().toString());
                     intent.putExtra("pass", editTextPass.getText().toString());
@@ -47,5 +71,18 @@ public class Login extends AppCompatActivity {
                 }
             }
 });
+
+        //Botón para las credenciales
+        Button btnCredenciales = findViewById(R.id.buttonModificar);
+
+
+
+        btnCredenciales.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent2 = new Intent(Login.this, ModificarCredenciales.class);
+                credenciales.launch(intent2);
+            }
+        });
     }
 }
