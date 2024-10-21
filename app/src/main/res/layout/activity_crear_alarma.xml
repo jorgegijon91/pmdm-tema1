@@ -27,7 +27,7 @@
                 android:id="@+id/textNombre"
                 android:layout_width="166dp"
                 android:layout_height="29dp"
-                android:text="Nombre" />
+                android:text="@string/nombre_alarma" />
 
             <EditText
                 android:id="@+id/editTextNombreAlarma"
@@ -45,7 +45,7 @@
                 android:id="@+id/textHora"
                 android:layout_width="147dp"
                 android:layout_height="wrap_content"
-                android:text="Hora" />
+                android:text="@string/hora" />
 
             <EditText
                 android:id="@+id/editTextHora"
@@ -63,7 +63,7 @@
                 android:id="@+id/textMinutos"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Minutos" />
+                android:text="@string/minutos" />
 
             <EditText
                 android:id="@+id/editTextMinutos"
@@ -82,7 +82,7 @@
                 android:id="@+id/buttonCrearAlarma"
                 android:layout_width="212dp"
                 android:layout_height="wrap_content"
-                android:text="Crear Alarma" />
+                android:text="@string/crear_alarma" />
         </TableRow>
     </TableLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

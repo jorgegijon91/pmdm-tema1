@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">PracticaTema1</string>
+    <!-- Strings para el Login -->
+    <string name="label_nombre">Nombre</string>
+    <string name="password">Password</string>
+    <string name="iniciar_sesi_n">Iniciar Sesión</string>
+    <string name="modificar_credenciales">Modificar credenciales</string>
+
+    <!-- Strings para el Login Correcto -->
+    <string name="poner_alarma">Poner alarma</string>
+
+    <!-- Strings para el Crear Alarma -->
+    <string name="nombre_alarma">Nombre</string>
+    <string name="hora">Hora</string>
+    <string name="minutos">Minutos</string>
+    <string name="crear_alarma">Crear Alarma</string>
+
+    <!-- Strings para el Modificar Credenciales -->
+    <string name="nuevo_nombre_de_usuario">Nuevo nombre de usuario:</string>
+    <string name="nuea_contrase_a">Nuea contraseña:</string>
+    <string name="guardar_cambios">Guardar cambios</string>
 </resources>

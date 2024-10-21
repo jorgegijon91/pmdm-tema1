@@ -17,8 +17,8 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class Login extends AppCompatActivity {
 
-    private String nombreUsuario = "admin";  // Valor por defecto
-    private String contrasena = "admin";     // Valor por defecto
+    private  String NOMBRE_USUARIO = "admin";  // Valor por defecto
+    private  String CONTRASENA = "admin";     // Valor por defecto
 
     ActivityResultLauncher<Intent> credenciales = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
@@ -30,8 +30,10 @@ public class Login extends AppCompatActivity {
                     String nombre = data.getStringExtra("Nombre");
                     String pass = data.getStringExtra("pass");
                     //Atualizar credenciales
-                    nombre=nombreUsuario;
-                    pass=contrasena;
+                    if (nombre != null && pass != null) {
+                        NOMBRE_USUARIO = nombre;
+                        CONTRASENA = pass;
+                    }
 
                 }
             });
@@ -59,7 +61,7 @@ public class Login extends AppCompatActivity {
                 String passUsuario= editTextPass.getText().toString();
 
                 //Lanzar el intent si los datos de nombre y contraseña son correctos
-                if (nombreUsuaro.equals(nombreUsuario) && passUsuario.equals(contrasena))  {
+                if (nombreUsuaro.equals(NOMBRE_USUARIO) && passUsuario.equals(CONTRASENA))  {
                     Intent intent = new Intent(Login.this, LoginCorrecto.class);
                     intent.putExtra("Nombre", editTextNombre.getText().toString());
                     intent.putExtra("pass", editTextPass.getText().toString());
@@ -74,9 +76,6 @@ public class Login extends AppCompatActivity {
 
         //Botón para las credenciales
         Button btnCredenciales = findViewById(R.id.buttonModificar);
-
-
-
         btnCredenciales.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

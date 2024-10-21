@@ -41,7 +41,7 @@
             android:id="@+id/buttonAlarma"
             android:layout_width="265dp"
             android:layout_height="86dp"
-            android:text="Poner alarma"
+            android:text="@string/poner_alarma"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
